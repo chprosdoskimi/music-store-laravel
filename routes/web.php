@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\ArtistsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +20,12 @@ use App\Http\Controllers\AlbumsController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/artists/create', [ArtistsController::class, 'create']);
 
-Route::get('/albums', [AlbumsController::class, 'index']);
-
+//Albuns Routes
+Route::get('/albums/index', [AlbumsController::class, 'index']);
 Route::get('/albums/create', function () {
     return view('albums.create');
 });
+
+Route::post('/albums/create', [AlbumsController::class, 'store']);

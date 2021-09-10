@@ -21,4 +21,18 @@ class AlbumsController extends Controller
 
         return view('albums.index', ["albuns" => $albuns]);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'album' => 'required',
+            'year' => 'required',
+            'price' => 'required',
+            'artist' => 'required',
+            'genre' => 'required',
+        ]);
+
+
+        //   return ;
+    }
 }
