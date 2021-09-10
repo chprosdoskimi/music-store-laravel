@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/albums/index">Listar Músicas</a>
+                        <a class="nav-link active" aria-current="page" href="/genres/create">Cadastrar Gêneros</a>
                     </li>
                 </ul>
                 <form class="d-flex">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreArtistRequest;
 use Illuminate\Http\Request;
 
 class ArtistsController extends Controller
@@ -12,11 +13,8 @@ class ArtistsController extends Controller
         return view('artists.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreArtistRequest $request)
     {
-        $request->validate([
-            'artist' => 'required',
-        ]);
 
 
         //   return ;

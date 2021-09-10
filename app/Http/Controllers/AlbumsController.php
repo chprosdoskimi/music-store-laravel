@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAlbumRequest;
 use Illuminate\Http\Request;
 
 class AlbumsController extends Controller
@@ -22,15 +23,9 @@ class AlbumsController extends Controller
         return view('albums.index', ["albuns" => $albuns]);
     }
 
-    public function store(Request $request)
+    public function store(StoreAlbumRequest $request)
     {
-        $request->validate([
-            'album' => 'required',
-            'year' => 'required',
-            'price' => 'required',
-            'artist' => 'required',
-            'genre' => 'required',
-        ]);
+
 
 
         //   return ;
