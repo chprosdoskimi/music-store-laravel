@@ -19,6 +19,6 @@ class AlbumsController extends Controller
             'Californication'
         ];
 
-        return view('albums.index', compact('albuns'));
+        return view('albums.index', ["albuns" => $albuns]);
     }
 }
