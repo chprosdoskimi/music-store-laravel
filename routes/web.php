@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlbumsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/albums', function () {
-    return view('albums.index');
+Route::get('/albums', [AlbumsController::class, 'index']);
+
+Route::get('/albums/create', function () {
+    return view('albums.create');
 });

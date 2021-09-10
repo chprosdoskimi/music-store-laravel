@@ -11,12 +11,21 @@
 </head>
 
 <body>
+    <h1>Albuns!</h1>
+
     <div class="container">
-        <div class="jumbotron">
-            <h1>Albuns</h1>
-        </div>
-        <a href="/albums/create" type="button" class="btn btn-secondary">Cadastrar Álbuns</a> <!-- JavaScript Bundle with Popper -->
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">FrogStamp</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
+    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 
