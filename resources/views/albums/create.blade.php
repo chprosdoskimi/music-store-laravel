@@ -43,30 +43,30 @@ Cadastrar Álbuns
         <label for="photo">Foto do Álbum</label>
         <input type="file" name="photo" id="photo" class="form-control-file">
     </div>
-    <div class="form-group mb-3">
-        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#musicsModal">
-            Cadastrar Musicas
-        </a>
+    <div class="form-group mt-2 mb-5">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#musicModal">
+            Adicionar Música
+        </button>
     </div>
+
+
     <!-- Modal -->
-    <div class="modal" id="musicsModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="musicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Musica</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>X</span>
-
-                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Músicas do Álbum</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="music">Musica</label>
+                        <label for="music">Música</label>
                         <input type="text" name="music" id="music" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button">Adicionar Músicas</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Adicionar</button>
                 </div>
             </div>
         </div>
