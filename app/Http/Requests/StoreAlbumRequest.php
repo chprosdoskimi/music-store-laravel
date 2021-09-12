@@ -29,7 +29,7 @@ class StoreAlbumRequest extends FormRequest
             'price' => 'required',
             'artist' => 'required',
             'genre' => 'required',
-            'photo' => 'required'
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000'
 
         ];
     }
@@ -42,7 +42,8 @@ class StoreAlbumRequest extends FormRequest
             'price.required' => 'O campo "preço" precisa de um valor.',
             'artist.required' => 'O campo "artista" é obrigatório.',
             'genre.required' => 'O campo "gênero" é obrigatório.',
-            'photo.required' => 'Insira uma foto para a capa do Álbum.'
+            'image.required' => 'Insira uma foto para a capa do Álbum.',
+            'image.mimes' => 'Formato incompatível de imagem.',
         ];
     }
 }

@@ -18,15 +18,16 @@ use App\Http\Controllers\GenresController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 //Artists Routes
 Route::get('/artists/create', [ArtistsController::class, 'create']);
 Route::post('/artists/create', [ArtistsController::class, 'store']);
 
 //Albuns Routes
-Route::get('/albums/index', [AlbumsController::class, 'index']);
+Route::get('/', [AlbumsController::class, 'home']);
+
 Route::get('/albums/create', function () {
     return view('albums.create');
 });

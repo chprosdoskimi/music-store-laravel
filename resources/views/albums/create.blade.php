@@ -40,8 +40,8 @@ Cadastrar Álbuns
         <input type="text" name="genre" id="genre" class="form-control">
     </div>
     <div class="form-group my-2">
-        <label for="photo">Foto do Álbum</label>
-        <input type="file" name="photo" id="photo" class="form-control-file">
+        <label for="image">Foto do Álbum</label>
+        <input type="file" name="image" id="image" class="form-control-file">
     </div>
     <div class="form-group mt-2 mb-5">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#musicModal">
@@ -51,6 +51,7 @@ Cadastrar Álbuns
 
 
     <!-- Modal -->
+
     <div class="modal fade" id="musicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -76,5 +77,14 @@ Cadastrar Álbuns
     <button class="btn btn-success">Editar Álbum</button>
 
 </form>
+
+<select id="artist">
+    @if ($artists === NULL)
+    <option value=""> </option>
+    @endif
+
+    <option value="$artists->id">$artists->name</option>
+</select>
+
 
 @endsection
