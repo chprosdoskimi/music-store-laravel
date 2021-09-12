@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGenreRequest;
 use Illuminate\Http\Request;
+use App\Models\Genre;
 
 class GenresController extends Controller
 {
@@ -15,9 +16,11 @@ class GenresController extends Controller
 
     public function store(StoreGenreRequest $request)
     {
-        $request->validate([
-            'genre' => 'required',
-        ]);
-        //   return ;
+        $genre = new Genre();
+        $genre->name = $request->name;
+
+        $genre->save();
+
+        return redirect('/genres/create');
     }
 }

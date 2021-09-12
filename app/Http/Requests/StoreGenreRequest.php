@@ -24,13 +24,14 @@ class StoreGenreRequest extends FormRequest
     public function rules()
     {
         return [
-            'genre' => 'required|unique:genres'
+            'name' => 'required|unique:genres'
         ];
     }
     public function messages()
     {
         return [
-            'genre.required' => 'O Campo "gênero" é obrigatório.'
+            'name.required' => 'O Campo "gênero" é obrigatório.',
+            'name.unique' => 'Gênero já cadastrado'
         ];
     }
 }

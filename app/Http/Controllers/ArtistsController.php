@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreArtistRequest;
+use App\Models\Artist;
 use Illuminate\Http\Request;
+
 
 class ArtistsController extends Controller
 {
@@ -15,8 +17,11 @@ class ArtistsController extends Controller
 
     public function store(StoreArtistRequest $request)
     {
+        $artist = new Artist();
+        $artist->name = $request->name;
 
+        $artist->save();
 
-        //   return ;
+        return redirect('/artists/create');
     }
 }

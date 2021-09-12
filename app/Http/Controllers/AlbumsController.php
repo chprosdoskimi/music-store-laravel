@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAlbumRequest;
 use Illuminate\Http\Request;
 use App\Models\Artist;
-use Illuminate\Support\Facades\Validator as FacadesValidator;
-use Illuminate\Validation\Validator;
+use App\Models\Genre;
+
 
 class AlbumsController extends Controller
 {
@@ -28,9 +28,9 @@ class AlbumsController extends Controller
 
     public function index()
     {
-        $artists = Artist::lists('name', 'id');
-
-        return view('albums.create', ['id' => $artists->id, 'name' => $artists->name]);
+        $artists = Artist::all();
+        $genres = Genre::all();
+        return view('albums.create', ['artists' => $artists, 'genres' => $genres]);
     }
 
     public function store(StoreAlbumRequest $request)
@@ -40,18 +40,18 @@ class AlbumsController extends Controller
         // $album->year = $request->year;
         // $album->price = $request->price;
 
-        // dd($request->all());
+        dd($request->all());
 
-        $image = $request->image;
+        // $image = $request->image;
 
-        $ext = $image->extension();
+        // $ext = $image->extension();
 
-        $imageExt = explode($ext, $image);
-        dd($imageExt);
+        // $imageExt = explode($ext, $image);
+        // dd($imageExt);
 
-        $imagePath = $image->getClientOriginalName() . strtotime('now') . $ext;
+        // $imagePath = $image->getClientOriginalName() . strtotime('now') . $ext;
 
-        dd($imagePath);
+        // dd($imagePath);
 
         //   return ;
     }

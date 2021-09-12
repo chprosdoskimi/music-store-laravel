@@ -24,14 +24,15 @@ class StoreArtistRequest extends FormRequest
     public function rules()
     {
         return [
-            'artist' => 'required'
+            'name' => 'required|unique:artists'
         ];
     }
 
     public function messages()
     {
         return [
-            'artist.required' => 'O campo "artista é obrigatório.'
+            'name.required' => 'O campo "artista é obrigatório.',
+            'name.unique' => 'Artista já cadastrado.'
         ];
     }
 }

@@ -20,7 +20,7 @@ Cadastrar Artista
     @csrf
     <div class="form-group">
         <label for="artist">Artista</label>
-        <input type="text" name="artist" id="artist" class="form-control">
+        <input type="text" name="name" id="artist" class="form-control">
     </div>
     <!-- Modal -->
 

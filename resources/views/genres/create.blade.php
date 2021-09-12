@@ -16,14 +16,12 @@ Cadastrar Artista
 </div>
 @endif
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST">
     @csrf
     <div class="form-group">
-        <label for="artist">Gênero</label>
-        <input type="text" name="genre" id="genre" class="form-control">
+        <label for="genre">Gênero</label>
+        <input type="text" name="name" id="genre" class="form-control">
     </div>
-    <!-- Modal -->
-
     <button class="btn btn-success mt-2">Cadastrar Gênero</button>
 
 </form>
