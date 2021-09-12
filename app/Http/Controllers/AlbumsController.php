@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAlbumRequest;
+use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Genre;
@@ -35,24 +36,20 @@ class AlbumsController extends Controller
 
     public function store(StoreAlbumRequest $request)
     {
-        // $album = new Album;
-        // $album->name = $request->album;
-        // $album->year = $request->year;
-        // $album->price = $request->price;
+        $album = new Album();
+        $album->name = $request->album;
+        $album->year = $request->year;
+        $album->price = $request->price;
+        $album->artist_id = $request->artist;
+        $album->genre_id = $request->genre;
 
-        dd($request->all());
+        if ($request->hasFile('image') && $request->image->isValid()) {
+            $imagePath = $request->image->store('albums');
+            $album->photo = $imagePath;
+        }
 
-        // $image = $request->image;
+        $album->save();
 
-        // $ext = $image->extension();
-
-        // $imageExt = explode($ext, $image);
-        // dd($imageExt);
-
-        // $imagePath = $image->getClientOriginalName() . strtotime('now') . $ext;
-
-        // dd($imagePath);
-
-        //   return ;
+        return redirect()->action([MusicsController::class, 'create'], ['id' => $album->id]);
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlbumsController;
 use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\GenresController;
+use App\Http\Controllers\MusicsController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -24,3 +26,7 @@ Route::post('/albums/create', [AlbumsController::class, 'store']);
 //Genres Routes
 Route::get('/genres/create', [GenresController::class, 'create']);
 Route::post('/genres/create', [GenresController::class, 'store']);
+
+//Musics Routes
+Route::get('/musics/create', [MusicsController::class, 'create']);
+Route::post('/musics/create', [MusicsController::class, 'store']);

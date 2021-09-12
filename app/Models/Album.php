@@ -14,7 +14,7 @@ class Album extends Model
      *
      * @var string
      */
-    protected $table = 'albuns';
+    protected $table = 'albums';
 
 
     public function artists()

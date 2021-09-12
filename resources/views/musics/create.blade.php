@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Cadastrar Gênero
+Cadastrar Música
 @endsection
 
 @section('content')
@@ -16,14 +16,15 @@ Cadastrar Gênero
 </div>
 @endif
 
+
 <form method="POST">
     @csrf
     <div class="form-group">
-        <label for="genre">Gênero</label>
-        <input type="text" name="name" id="genre" class="form-control">
+        <label for="music">Música</label>
+        <input type="text" name="music" id="music" class="form-control">
     </div>
-    <button class="btn btn-success mt-2">Cadastrar Gênero</button>
+    <button class="btn btn-success mt-2">Cadastrar Música</button>
 
 </form>
-
+<a class="btn btn-link" href="/">Voltar para página Principal</a>
 @endsection

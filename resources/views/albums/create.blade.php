@@ -16,6 +16,8 @@ Cadastrar Álbuns
 </div>
 @endif
 
+<div id="result"></div>
+
 <form method="POST" id="form" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -55,40 +57,9 @@ Cadastrar Álbuns
         <label for="image">Foto do Álbum</label>
         <input type="file" name="image" id="image" class="form-control-file">
     </div>
-    <div class="form-group mt-2 mb-5">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#musicModal">
-            Adicionar Música
-        </button>
-    </div>
-
-
-    <!-- Modal -->
-
-    <div class="modal fade" id="musicModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Músicas do Álbum</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="music">Música</label>
-                        <input type="text" name="music" id="music" class="form-control">
-                    </div>
-                    <ul id="modalMusics">
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" id="btnMusic" class="btn btn-primary">Adicionar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <button class="btn btn-success">Cadastrar Álbum</button>
-    <button class="btn btn-secondary">Editar Álbum</button>
+    <!-- <button class="btn btn-secondary">Editar Álbum</button> -->
 
 </form>
 @endsection
