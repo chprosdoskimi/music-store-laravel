@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/genres/create">Cadastrar Gêneros</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/musics/create">Cadastrar Músicas</a>
+                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
