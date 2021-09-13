@@ -22,10 +22,10 @@
     <div class="row">
         @if($albuns)
 
-
         @forelse ( $albuns as $album)
-        <div class="card my-2 " style="width: 18rem">
-            <img class="card-img-top" src="{{ url('storage/'.$album->photo)}}" alt="{{$album->name}}" style=" max-width: 100%;">
+
+        <div class="card my-2 me-3" style="width: 18rem">
+            <img class="card-img-top py-2" src="{{ url('storage/'.$album->photo)}}" alt="{{$album->name}}" style=" max-width: 100%;">
             <div class="card-body">
                 <h5 class="card-title">{{$album->name}}</h5>
                 <p class="card-text">Preço R$: <strong>{{$album->price}}</strong></p>
@@ -52,6 +52,7 @@
 
         @empty
         <h2>Nenhum Álbum Cadastrado</h2>
+
         @endforelse
     </div>
 </div>
