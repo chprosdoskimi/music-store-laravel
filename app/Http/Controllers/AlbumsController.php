@@ -8,7 +8,6 @@ use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Genre;
-use Illuminate\Support\Facades\Storage;
 
 
 class AlbumsController extends Controller
@@ -16,9 +15,15 @@ class AlbumsController extends Controller
     public function home(Request $request)
     {
 
-        $albuns = Album::all();
+        $genres =  Genre::all();
 
-        return view('albums.home', ["albuns" => $albuns]);
+        if (isset($request->search)) {
+            $albuns = Album::where('genre_id', $request->search)->get();
+        } else {
+            $albuns = Album::all();
+        }
+
+        return view('albums.home', ["albuns" => $albuns, "genres" => $genres]);
     }
 
     public function index()

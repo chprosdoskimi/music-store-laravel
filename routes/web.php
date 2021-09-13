@@ -19,6 +19,7 @@ Route::post('/artists/create', [ArtistsController::class, 'store']);
 //Albuns Routes
 Route::get('/', [AlbumsController::class, 'home']);
 
+
 Route::get('/albums/create', [AlbumsController::class, 'index']);
 
 Route::post('/albums/create', [AlbumsController::class, 'store']);
