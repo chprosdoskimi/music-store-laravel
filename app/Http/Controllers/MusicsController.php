@@ -6,17 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGenreRequest;
 use Illuminate\Http\Request;
 use App\Models\Music;
+use App\Models\Album;
 
 class MusicsController extends Controller
 {
-    public function create(Request $request)
+    public function create()
     {
-        return view('musics.create');
+        $albuns = Album::all();
+
+        return view(
+            'musics.create',
+            ['albuns' => $albuns]
+        );
     }
 
-    public function store(StoreGenreRequest $request)
+    public function store(Request $request)
     {
+        $music = new Music();
 
-        return;
+        $music->name = $request->music;
+        $music->duration = $request->duration;
+        $music->album_id = $request->album;
+        $music->save();
+
+        return redirect('/musics/create');
     }
 }

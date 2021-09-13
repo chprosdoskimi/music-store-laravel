@@ -17,6 +17,8 @@ class CreateMusicsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('duration');
+            $table->unsignedBigInteger('album_id');
+            $table->foreign('album_id')->references('id')->on('albums');
             $table->timestamps();
         });
     }

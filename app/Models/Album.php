@@ -17,7 +17,7 @@ class Album extends Model
     protected $table = 'albums';
 
 
-    public function artists()
+    public function artist()
     {
         return $this->belongsTo(Artist::class);
     }
@@ -25,7 +25,7 @@ class Album extends Model
     {
         return $this->hasMany(Music::class);
     }
-    public function genres()
+    public function genre()
     {
         return $this->belongsTo(Genre::class);
     }

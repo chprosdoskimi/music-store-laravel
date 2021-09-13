@@ -8,6 +8,7 @@ use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Storage;
 
 
 class AlbumsController extends Controller
@@ -15,14 +16,7 @@ class AlbumsController extends Controller
     public function home(Request $request)
     {
 
-        $albuns = [
-            'Frogstomp',
-            'Neon Ballroom',
-            'Freak Show',
-            'Californication',
-            'By the Way',
-            'Californication'
-        ];
+        $albuns = Album::all();
 
         return view('albums.home', ["albuns" => $albuns]);
     }
@@ -39,7 +33,8 @@ class AlbumsController extends Controller
         $album = new Album();
         $album->name = $request->album;
         $album->year = $request->year;
-        $album->price = $request->price;
+        $priceValue = str_replace(',', '.', $request->price, $i);
+        $album->price = $priceValue;
         $album->artist_id = $request->artist;
         $album->genre_id = $request->genre;
 
@@ -50,6 +45,7 @@ class AlbumsController extends Controller
 
         $album->save();
 
-        return redirect()->action([MusicsController::class, 'create'], ['id' => $album->id]);
+        // return redirect()->action([MusicsController::class, 'create'], ['id' => $album->id]);
+        return redirect('/musics/create/');
     }
 }

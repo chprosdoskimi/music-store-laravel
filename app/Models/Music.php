@@ -18,7 +18,12 @@ class Music extends Model
     /**
      * Get the users for seller.
      */
-    public function albuns()
+    public function getFormatedDurationAttribute()
+    {
+        return gmdate("i:s", $this->duration);
+    }
+
+    public function album()
     {
         return $this->belongsTo(Album::class);
     }
