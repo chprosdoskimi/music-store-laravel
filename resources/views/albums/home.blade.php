@@ -18,10 +18,10 @@
     <button class="btn btn-outline-success" type="submit">Filtrar</button>
 </form>
 
-@if($albuns)
+<div class="container">
+    <div class="row">
+        @if($albuns)
 
-<div class="row">
-    <div class="col">
 
         @forelse ( $albuns as $album)
         <div class="card my-2 " style="width: 18rem">
@@ -50,12 +50,11 @@
             </div>
         </div>
 
+        @empty
+        <h2>Nenhum Álbum Cadastrado</h2>
+        @endforelse
     </div>
 </div>
-@empty
-<h2>Nenhum Álbum Cadastrado</h2>
-@endforelse
-
 @endif
 
 @endsection
