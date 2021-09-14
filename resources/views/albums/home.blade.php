@@ -24,7 +24,7 @@
 
         @forelse ( $albuns as $album)
 
-        <div class="card my-2 me-3" style="width: 18rem">
+        <div class="card my-2 me-5" style="width: 18rem">
             <img class="card-img-top py-2" src="{{ url('storage/'.$album->photo)}}" alt="{{$album->name}}" style=" max-width: 100%;">
             <div class="card-body">
                 <h5 class="card-title">{{$album->name}}</h5>
@@ -35,17 +35,17 @@
                     Exibir Músicas
                 </a>
                 <div class="collapse" id="showMusic{{$album->id}}">
-                    <div class="card card-body">
-                        @if(!$album->music)
-                        <ul>
-                            @foreach ( $album->musics as $music )
-                            <li>{{ $loop->index+1 }} - {{$music->name}} <strong>{{$music->formated_duration}}</strong></li>
-                            @endforeach
-                        </ul>
-                        @else
-                        <p>Nenhuma música cadastrada</p>
-                        @endif
-                    </div>
+                    <br>
+                    @if(!$album->music)
+                    <ul>
+                        @foreach ( $album->musics as $music )
+                        <li>{{ $loop->index+1 }} - {{$music->name}} <strong>{{$music->formated_duration}}</strong></li>
+                        @endforeach
+                    </ul>
+                    @else
+                    <p>Nenhuma música cadastrada</p>
+                    @endif
+
                 </div>
             </div>
         </div>
