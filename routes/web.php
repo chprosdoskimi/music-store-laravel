@@ -19,11 +19,14 @@ Route::post('/artists/create', [ArtistsController::class, 'store']);
 //Albuns Routes
 Route::get('/', [AlbumsController::class, 'home']);
 
-
 Route::get('/albums/create', [AlbumsController::class, 'index']);
 
 Route::post('/albums/create', [AlbumsController::class, 'store']);
 
+Route::get('/albums/edit/{id}', [AlbumsController::class, 'edit']);
+Route::post('/albums/edit/{id}', [AlbumsController::class, 'update']);
+
+Route::post('/albums/create', [AlbumsController::class, 'store']);
 //Genres Routes
 Route::get('/genres/create', [GenresController::class, 'create']);
 Route::post('/genres/create', [GenresController::class, 'store']);

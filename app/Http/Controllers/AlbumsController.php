@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAlbumRequest;
-use App\Models\Album;
+use App\Http\Requests\EditAlbumRequest;
 use Illuminate\Http\Request;
+use App\Models\Album;
 use App\Models\Artist;
 use App\Models\Genre;
 
@@ -18,12 +19,12 @@ class AlbumsController extends Controller
         $genres =  Genre::all();
 
         if (isset($request->search)) {
-            $albuns = Album::where('genre_id', $request->search)->get();
+            $albums = Album::where('genre_id', $request->search)->get();
         } else {
-            $albuns = Album::all();
+            $albums = Album::all();
         }
 
-        return view('albums.home', ["albuns" => $albuns, "genres" => $genres]);
+        return view('albums.home', ["albums" => $albums, "genres" => $genres]);
     }
 
     public function index()
@@ -52,5 +53,31 @@ class AlbumsController extends Controller
 
         // return redirect()->action([MusicsController::class, 'create'], ['id' => $album->id]);
         return redirect('/musics/create/');
+    }
+
+    public function edit($id)
+    {
+        $artists = Artist::all();
+        $genres = Genre::all();
+        $album = Album::find($id);
+
+        return view('albums.create', ['album' => $album, "artists" => $artists, "genres" => $genres]);
+    }
+    public function update(EditAlbumRequest $request, $id)
+    {
+        $album =  Album::find($id);
+        $album->name = $request->album;
+        $album->year = $request->year;
+        $priceValue = str_replace(',', '.', $request->price, $i);
+        $album->price = $priceValue;
+        $album->artist_id = $request->artist;
+        $album->genre_id = $request->genre;
+
+        // if ($request->hasFile('image') && $request->image->isValid()) {
+        //     $imagePath = $request->image->store('albums');
+        //     $album->photo = $imagePath;
+        // }
+        $album->update();
+        return redirect('/');
     }
 }

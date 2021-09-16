@@ -22,6 +22,7 @@ class MusicsController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $music = new Music();
 
         $music->name = $request->music;
