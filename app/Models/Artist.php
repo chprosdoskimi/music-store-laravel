@@ -16,10 +16,12 @@ class Artist extends Model
      */
     protected $table = 'artists';
 
+    protected $fillable = ['name'];
+
     /**
      * Get the users for seller.
      */
-    public function album()
+    public function albums()
     {
         return $this->hasMany(Album::class);
     }

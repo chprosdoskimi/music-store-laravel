@@ -24,7 +24,7 @@ class StoreArtistRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:artists'
+            'name' => 'required|min:2|max:255|unique:artists'
         ];
     }
 
@@ -32,7 +32,9 @@ class StoreArtistRequest extends FormRequest
     {
         return [
             'name.required' => 'O campo "artista é obrigatório.',
-            'name.unique' => 'Artista já cadastrado.'
+            'name.unique'   => 'Artista já cadastrado.',
+            'name.min'      => 'O "artista" deve ter no mínimo 2 caracteres.',
+            'name.max'      => 'O "artista" deve ter no máximo 255 caracteres'
         ];
     }
 }

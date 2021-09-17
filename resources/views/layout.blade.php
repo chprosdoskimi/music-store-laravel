@@ -41,6 +41,24 @@
     <div class="container">
         <h3 class="my-5">@yield('title')</h3>
 
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if (session('success'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{{session('success')}}</li>
+            </ul>
+        </div>
+        @endif
+
         @yield('content')
 
     </div>

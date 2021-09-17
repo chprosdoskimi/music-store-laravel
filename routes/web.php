@@ -13,20 +13,20 @@ use App\Http\Controllers\MusicsController;
 //     return view('welcome');
 // });
 //Artists Routes
-Route::get('/artists/create', [ArtistsController::class, 'create']);
-Route::post('/artists/create', [ArtistsController::class, 'store']);
+Route::get('/artists/form', [ArtistsController::class, 'create']);
+Route::post('/artists', [ArtistsController::class, 'store']);
+Route::get('/artists/form/{id}', [ArtistsController::class, 'edit']);
+Route::put('/artists/form/{id}', [ArtistsController::class, 'update']);
 
 //Albuns Routes
 Route::get('/', [AlbumsController::class, 'home']);
 
 Route::get('/albums/create', [AlbumsController::class, 'index']);
-
 Route::post('/albums/create', [AlbumsController::class, 'store']);
 
 Route::get('/albums/edit/{id}', [AlbumsController::class, 'edit']);
 Route::post('/albums/edit/{id}', [AlbumsController::class, 'update']);
 
-Route::post('/albums/create', [AlbumsController::class, 'store']);
 //Genres Routes
 Route::get('/genres/create', [GenresController::class, 'create']);
 Route::post('/genres/create', [GenresController::class, 'store']);
@@ -34,3 +34,4 @@ Route::post('/genres/create', [GenresController::class, 'store']);
 //Musics Routes
 Route::get('/musics/create', [MusicsController::class, 'create']);
 Route::post('/musics/create', [MusicsController::class, 'store']);
+// Route::post('/musics/edit/{id}', [MusicsController::class, 'edit']);

@@ -32,4 +32,10 @@ class MusicsController extends Controller
 
         return redirect('/musics/create');
     }
+
+    public function edit($id)
+    {
+        $music = Music::find($id);
+        return view('musics.create', ['music' => $music]);
+    }
 }
